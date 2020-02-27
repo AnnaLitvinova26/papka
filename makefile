@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp Repo.cpp -g -o main
+	g++ main.cpp Repo.cpp TestRepo.cpp -g -o main

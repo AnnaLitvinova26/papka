@@ -17,7 +17,6 @@ public:
     void AddTask(Task task){
         tasks.push_back(task);
     }
-
     bool Process(){
         int x = rand()%100;
         if (x <= 90){
@@ -29,6 +28,10 @@ public:
         if (tasks.size() != 0){
             return true;
         } else false;
+    }
+
+    std::string getWorker(){
+        return _surname;
     }
 
 private:

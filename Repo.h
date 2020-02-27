@@ -5,18 +5,15 @@
 
 class Repo{
 public:
-    static Repo* getInstance(){
-        if (_instance == 0){
-            _instance = new Repo();
-        }
-        return _instance;
-    }
-
-    Dept* getDesign();
-    Dept* getFront();
-    Dept* getBack();
+    virtual Dept* getDesign() = 0;
+    virtual Dept* getFront() = 0;
+    virtual Dept* getBack() = 0;
 private:
     static Repo* _instance;
 };
+
+
+Repo* getInstance();
+
 
 #endif

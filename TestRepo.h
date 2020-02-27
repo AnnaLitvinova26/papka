@@ -7,9 +7,13 @@
 
 class TestRepo : public Repo{
 public:
-    
-private:
+    Dept* getDesign() override;
+    Dept* getFront() override;
+    Dept* getBack()override;
     std::vector<Task> tasks;     
 };
+
+
+Repo* getInstance();
 
 #endif  
