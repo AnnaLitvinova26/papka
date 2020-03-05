@@ -10,5 +10,14 @@ using namespace std;
 
 int main(){
     srand (time(0)); 
-    std::cout << getInstance()->getDesign()->getWorkers()[0].getWorker();
+    Company* comp = new Company();
+    
+    for (int i = 0; i < 5; i++){
+        std::string s = std::to_string(i);
+        comp -> AddTask(Task("task" + s, i + 1));
+    }    
+
+    while(comp -> HaveWork()){
+        comp -> Process();
+    }    
 }

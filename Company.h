@@ -5,7 +5,11 @@
 #include "Task.h"
 
 
+
+
 #include <queue>
+
+
 /*void test(int task){
     std::queue<int> q;
     q.push(task);
@@ -16,22 +20,17 @@
     q.pop();
 }*/
 
-
 class Company{
 public:
-    void AddTask(Task task){
-        design.AddTask(task);
-    }
-    bool Process(){
-        design.Process();        
-    }
-    bool HaveWork(){
+    Company();
 
-    }
+    void AddTask(Task task);
+    bool Process();
+    bool HaveWork();
 private:
-    Dept design;
-    Dept front;
-    Dept back;
+    Dept* design;
+    Dept* front;
+    Dept* back;
 };
 
 #endif

@@ -8,21 +8,12 @@
 class Dept{
 public:
 
-    std::vector <Worker> getWorkers(){
-        return workers;
-    } 
-    void addWorker(Worker worker) {
-        workers.push_back(worker);
-    }
+    std::vector <Worker> getWorkers();
+    void addWorker(Worker worker);
 
-    void AddTask(Task task){
-        workers[0].AddTask(task);
-    }
-    bool Process(){
-        for (int i = 0; i < workers.size(); i++){
-            workers[i].Process();
-        }
-    }
+    void AddTask(Task task);
+    bool Process();
+    bool HaveWork();
     
 private:
     std::vector <Worker> workers;

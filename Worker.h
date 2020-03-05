@@ -14,25 +14,11 @@ public:
         _name = name;
         score = 0;
     }
-    void AddTask(Task task){
-        tasks.push_back(task);
-    }
-    bool Process(){
-        int x = rand()%100;
-        if (x <= 90){
-            tasks.erase(tasks.begin());
-            score++;
-        } else{
-            score--;
-        }
-        if (tasks.size() != 0){
-            return true;
-        } else false;
-    }
+    void AddTask(Task task);
+    bool Process();
+    bool HaveWork();
 
-    std::string getWorker(){
-        return _surname;
-    }
+    std::string getWorker();
 
 private:
     std::string _surname;
