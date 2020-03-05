@@ -15,7 +15,7 @@ public:
         score = 0;
     }
     void AddTask(Task task);
-    bool Process();
+    Task* Process();
     bool HaveWork();
 
     std::string getWorker();

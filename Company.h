@@ -25,8 +25,10 @@ public:
     Company();
 
     void AddTask(Task task);
-    bool Process();
+    void Process();
     bool HaveWork();
+
+    std::vector<Worker> getWorkersDesign();
 private:
     Dept* design;
     Dept* front;

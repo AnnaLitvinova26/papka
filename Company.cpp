@@ -3,15 +3,18 @@
 
 
 Company::Company() {
-        design = getInstance()->getDesign();
-        front = getInstance()->getFront();
-        back = getInstance()->getBack();
+    design = getInstance()->getDesign();
+    front = getInstance()->getFront();
+    back = getInstance()->getBack();
 }
 
+std::vector<Worker> Company::getWorkersDesign(){
+    return design->getWorkers();
+}
 void Company::AddTask(Task task){
     design->AddTask(task);
 }
-bool Company::Process(){
+void Company::Process(){
     design->Process(); 
     front->Process();
     back->Process();

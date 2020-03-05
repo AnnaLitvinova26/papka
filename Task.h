@@ -9,6 +9,7 @@ public:
         _name = name;
         _level = level;
     }
+    std::string getTask();
 private:
     std::string _name;
     int _level;

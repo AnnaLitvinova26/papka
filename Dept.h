@@ -7,7 +7,7 @@
 
 class Dept{
 public:
-
+    Dept(Dept* next);
     std::vector <Worker> getWorkers();
     void addWorker(Worker worker);
 
@@ -18,6 +18,8 @@ public:
 private:
     std::vector <Worker> workers;
     Worker* boss;
+
+    Dept* _next;
 };
 
 #endif

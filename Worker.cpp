@@ -1,19 +1,21 @@
 #include "Worker.h"
 
+#include <iostream>
 void Worker::AddTask(Task task){
     tasks.push_back(task);
 }
-bool Worker::Process(){
+
+
+Task* Worker::Process(){
     int x = rand()%100;
     if (x <= 90){
-        tasks.erase(tasks.begin());
+        //tasks.erase(tasks.begin());
         score++;
+        return tasks[0];
     } else{
         score--;
+        return 0;
     }
-    if (tasks.size() != 0){
-        return true;
-    } else false;
 }
 bool Worker::HaveWork(){
     if (tasks.size() != 0){
@@ -23,5 +25,10 @@ bool Worker::HaveWork(){
 }
 
 std::string Worker::getWorker(){
-    return _surname + " " + _name;
+    std::string s;
+
+    for (int i = 0; i < tasks.size(); i++){
+        s += tasks[i].getTask() + " ";
+    }
+    return _surname + " " + _name + " " + s;
 }

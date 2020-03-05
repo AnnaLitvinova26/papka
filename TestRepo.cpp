@@ -1,44 +1,46 @@
 #include "TestRepo.h"
 
 
+TestRepo::TestRepo() {
+    Dept* back = new Dept(0);
+    Dept* front = new Dept(back);
+    Dept* design = new Dept(front);
 
-Dept* TestRepo::getDesign(){
     std::string surname;
     std::string name;
-    Dept* design = new Dept();
-    for (int i = 0; i < 5; i++){
+
+    int i = 0;
+    for (; i < 5; i++){
         std::string s = std::to_string(i + 1);
         surname = "Ivanov" + s;
         name =  "Ivan" + s;
         design->addWorker(Worker(surname, name));
     }
-    return design;
-}
-Dept* TestRepo::getFront(){
-    std::string surname;
-    std::string name;        
-    Dept* front = new Dept();
-    for (int i = 0; i < 5; i++){
-        std::string s = std::to_string(i * 2 + 1);
+
+    for (; i < 10; i++){
+        std::string s = std::to_string(i + 1);
         surname = "Ivanov" + s;
         name =  "Ivan" + s;
         front->addWorker(Worker(surname, name));        
     }
-    return front;
-}
-Dept* TestRepo::getBack(){
-    std::string surname;
-    std::string name;        
-    Dept* back = new Dept();
-    for (int i = 0; i < 5; i++){
-        std::string s = std::to_string(i * 3 + 1);
+
+    for (; i < 15; i++){
+        std::string s = std::to_string(i + 1);
         surname = "Ivanov" + s;
         name =  "Ivan" + s;
         back->addWorker(Worker(surname, name));        
     }
-    return back;
 }
 
+Dept* TestRepo::getDesign(){
+    return _design;
+}
+Dept* TestRepo::getFront(){
+    return _front;
+}
+Dept* TestRepo::getBack(){
+    return _back;
+}
 
 Repo* getInstance() {
     static Repo* _instance = 0;

@@ -17,7 +17,11 @@ int main(){
         comp -> AddTask(Task("task" + s, i + 1));
     }    
 
+    cout << comp->getWorkersDesign()[0].getWorker() << endl;
+
     while(comp -> HaveWork()){
-        comp -> Process();
-    }    
+        comp -> Process();        
+    }   
+    
+    cout << comp->getWorkersDesign()[0].getWorker() << endl;
 }

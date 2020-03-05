@@ -1,5 +1,9 @@
 #include "Dept.h"
 
+Dept::Dept(Dept* next) {
+    _next = next;
+}
+
 std::vector <Worker> Dept::getWorkers(){
     return workers;
 } 
@@ -12,7 +16,12 @@ void Dept::AddTask(Task task){
 }
 bool Dept::Process(){
     for (int i = 0; i < workers.size(); i++){
-        workers[i].Process();
+        if (workers[i].HaveWork()){
+            Task* task = workers[i].Process();
+            if (task != 0) {                
+                _next->AddTask(task);
+            }
+        }
     }
 }
 bool Dept::HaveWork(){
