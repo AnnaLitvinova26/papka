@@ -24,11 +24,13 @@ class Company{
 public:
     Company();
 
-    void AddTask(Task task);
+    void AddTask(Task* task);
     void Process();
     bool HaveWork();
 
     std::vector<Worker> getWorkersDesign();
+    std::vector<Worker> getWorkersFront();
+    std::vector<Worker> getWorkersBack();
 private:
     Dept* design;
     Dept* front;

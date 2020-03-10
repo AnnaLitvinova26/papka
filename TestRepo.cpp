@@ -2,9 +2,9 @@
 
 
 TestRepo::TestRepo() {
-    Dept* back = new Dept(0);
-    Dept* front = new Dept(back);
-    Dept* design = new Dept(front);
+    _back = new Dept(0);
+    _front = new Dept(_back);
+    _design = new Dept(_front);
 
     std::string surname;
     std::string name;
@@ -14,21 +14,21 @@ TestRepo::TestRepo() {
         std::string s = std::to_string(i + 1);
         surname = "Ivanov" + s;
         name =  "Ivan" + s;
-        design->addWorker(Worker(surname, name));
+        _design->addWorker(Worker(surname, name));
     }
 
     for (; i < 10; i++){
         std::string s = std::to_string(i + 1);
         surname = "Ivanov" + s;
         name =  "Ivan" + s;
-        front->addWorker(Worker(surname, name));        
+        _front->addWorker(Worker(surname, name));        
     }
 
     for (; i < 15; i++){
         std::string s = std::to_string(i + 1);
         surname = "Ivanov" + s;
         name =  "Ivan" + s;
-        back->addWorker(Worker(surname, name));        
+        _back->addWorker(Worker(surname, name));        
     }
 }
 

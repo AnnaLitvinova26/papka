@@ -11,7 +11,7 @@ public:
     std::vector <Worker> getWorkers();
     void addWorker(Worker worker);
 
-    void AddTask(Task task);
+    void AddTask(Task* task);
     bool Process();
     bool HaveWork();
     

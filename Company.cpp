@@ -11,7 +11,13 @@ Company::Company() {
 std::vector<Worker> Company::getWorkersDesign(){
     return design->getWorkers();
 }
-void Company::AddTask(Task task){
+std::vector<Worker> Company::getWorkersFront(){
+    return front->getWorkers();
+}
+std::vector<Worker> Company::getWorkersBack(){
+    return back->getWorkers();
+}
+void Company::AddTask(Task* task){
     design->AddTask(task);
 }
 void Company::Process(){
