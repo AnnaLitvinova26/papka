@@ -7,9 +7,11 @@ void Worker::AddTask(Task* task){
 
 Task* Worker::Process(){
     int x = rand()%100;
-    if (x <= 100){        
+    if (x <= 80){        
         score++;
-        return tasks[0];
+        Task* result = tasks[0];
+        tasks.erase(tasks.begin());
+        return result;
     } else{
         score--;
         return 0;

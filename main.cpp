@@ -8,23 +8,22 @@
 
 using namespace std;
 
+
+
 int main(){
     srand (time(0)); 
-    Company* comp = new Company();
+    Company* comp = new Company();    
 
-    
-
-    for (int i = 0; i < 5; i++){
+    for (int i = 0; i < 10; i++){
         std::string s = std::to_string(i);
         comp -> AddTask(new Task("task" + s, i + 1));        
     }  
 
-    while(comp -> HaveWork()){
-        cout << comp->getWorkersDesign()[0].getWorker() << endl;
-        cout << comp->getWorkersFront()[0].getWorker() << endl;        
-        cout << comp->getWorkersBack()[0].getWorker() << endl;
-        cout << endl;
+    while(comp -> HaveWork()) {
+        comp->getWorkers();    
+
+        std::cout << "________________________________" << std::endl;
         comp -> Process();      
-    }   
-    
+    }
+    comp->getWorkers();
 }

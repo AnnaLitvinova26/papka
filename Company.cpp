@@ -1,6 +1,6 @@
 #include "Company.h"
 #include "Repo.h"
-
+#include <iostream>
 
 Company::Company() {
     design = getInstance()->getDesign();
@@ -17,14 +17,32 @@ std::vector<Worker> Company::getWorkersFront(){
 std::vector<Worker> Company::getWorkersBack(){
     return back->getWorkers();
 }
+
+
+void Company::getWorkers(){
+    for(auto w:design->getWorkers()){
+        std::cout << w.getWorker() << std::endl;
+    }       
+    std::cout << std::endl;
+    for(auto w:front->getWorkers()){
+        std::cout << w.getWorker() << std::endl;
+    }  
+    std::cout << std::endl;
+    for(auto w:back->getWorkers()){
+        std::cout << w.getWorker() << std::endl;
+    }   
+    std::cout << std::endl;
+}
+
+
 void Company::AddTask(Task* task){
     design->AddTask(task);
 }
-void Company::Process(){
-    design->Process(); 
-    front->Process();
+void Company::Process(){   
     back->Process();
+    front->Process();
+    design->Process();
 }
 bool Company::HaveWork(){
-    return  design->HaveWork();
+    return  design->HaveWork() || front->HaveWork() || back->HaveWork();
 }

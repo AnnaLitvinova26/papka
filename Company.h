@@ -5,8 +5,6 @@
 #include "Task.h"
 
 
-
-
 #include <queue>
 
 
@@ -27,6 +25,8 @@ public:
     void AddTask(Task* task);
     void Process();
     bool HaveWork();
+
+    void getWorkers();
 
     std::vector<Worker> getWorkersDesign();
     std::vector<Worker> getWorkersFront();

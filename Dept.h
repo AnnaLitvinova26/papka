@@ -20,6 +20,8 @@ private:
     Worker* boss;
 
     Dept* _next;
+
+    int countW;
 };
 
 #endif
