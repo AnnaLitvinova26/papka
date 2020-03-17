@@ -18,7 +18,6 @@ std::vector<Worker> Company::getWorkersBack(){
     return back->getWorkers();
 }
 
-
 void Company::getWorkers(){
     for(auto w:design->getWorkers()){
         std::cout << w.getWorker() << std::endl;
@@ -33,7 +32,6 @@ void Company::getWorkers(){
     }   
     std::cout << std::endl;
 }
-
 
 void Company::AddTask(Task* task){
     design->AddTask(task);

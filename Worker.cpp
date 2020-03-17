@@ -5,17 +5,19 @@ void Worker::AddTask(Task* task){
     tasks.push_back(task);
 }
 
-Task* Worker::Process(){
+void Worker::Process(){
     int x = rand()%100;
-    if (x <= 80){        
-        score++;
-        Task* result = tasks[0];
-        tasks.erase(tasks.begin());
-        return result;
-    } else{
-        score--;
-        return 0;
-    };
+    Task* result;
+    if (x <= 80){    
+        result = tasks[0];
+        tasks.erase(tasks.begin());        
+    }
+    else {
+        result = 0;
+    }
+    for (auto l:listeners){
+        l->onWorkReady(result, );
+    }
 }
 bool Worker::HaveWork(){
     if (tasks.size() != 0){
@@ -34,4 +36,8 @@ std::string Worker::getWorker(){
         s += tasks[i]->getTask() + " ";
     }
     return _surname + " " + _name + " " + s;
+}
+
+void Worker::addListener(Listener* listener){
+    listeners.push_back(listener);
 }

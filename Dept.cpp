@@ -12,6 +12,7 @@ std::vector <Worker> Dept::getWorkers(){
 
 void Dept::addWorker(Worker worker) {
     workers.push_back(worker);
+
 }
 
 void Dept::AddTask(Task* task){    
@@ -31,6 +32,13 @@ bool Dept::Process(){
 }
 bool Dept::HaveWork(){
     for (int i = 0; i < workers.size(); i++){
-        return workers[i].HaveWork();
-    }        
+        if (workers[i].HaveWork()){
+            return true;
+        }
+    }   
+    return false;
+}
+
+void Dept::onWorkReady(Task* task, Worker* worker){
+    
 }

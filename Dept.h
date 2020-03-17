@@ -5,7 +5,7 @@
 
 #include "Worker.h"
 
-class Dept{
+class Dept :public Listener{
 public:
     Dept(Dept* next);
     std::vector <Worker> getWorkers();
@@ -14,6 +14,8 @@ public:
     void AddTask(Task* task);
     bool Process();
     bool HaveWork();
+
+    void onWorkReady(Task* task, Worker* worker);
     
 private:
     std::vector <Worker> workers;

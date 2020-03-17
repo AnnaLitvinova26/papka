@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "Task.h"
+#include "Listener.h"
 
 class Worker{
 public:
@@ -15,17 +16,19 @@ public:
         score = 0;
     }
     void AddTask(Task* task);
-    Task* Process();
+    void Process();
     bool HaveWork();
     void deleteTask();
 
     std::string getWorker();
+    void addListener(Listener* listener);
 
 private:
     std::string _surname;
     std::string _name;
     int score;
     std::vector <Task*> tasks;
+    std::vector <Listener*> listeners;
 };
 
 #endif

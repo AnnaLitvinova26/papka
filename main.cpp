@@ -24,6 +24,7 @@ int main(){
 
         std::cout << "________________________________" << std::endl;
         comp -> Process();      
-    }
+    } 
+
     comp->getWorkers();
 }
